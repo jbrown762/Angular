@@ -1,0 +1,66 @@
+<html ng-app="customers">
+<head></head>
+<body ng-controller="CustomerController as CC">
+
+	<ul>
+		<li data-id="{{ customer.id }}" ng-repeat="customer in CC.customers"
+			ng-click="CC.remove($index)"><a href="">{{customer.name }}</a></li>
+	</ul>
+
+	<form ng-submit="CC.add()">
+		<label for="customer-name">New Customer</label> <input
+			id="customer-name" type="text" ng-model="CC.newName"> <input
+			type="submit" value="Add New Customer">
+	</form>
+	<div>Number of customers: {{ CC.customers.length }}</div>
+	<br>
+	<div>First customer: {{ CC.customers[0].name }}</div>
+	<div>Last customer: {{ CC.customers[CC.customers.length-1].name
+		}}</div>
+
+
+	<script src="./js/angular.js"></script>
+	<script type="text/javascript">
+		angular.module('customers', []).controller("CustomerController",
+				function($scope) {
+					this.customers = [ {
+						id : 87,
+						name : "John Football"
+					}, {
+						id : 110,
+						name : "John Baseball"
+					}, {
+						id : 111,
+						name : "Man"
+					}, {
+						id : 112,
+						name : "Joe"
+					} ];
+
+					this.newName = "";
+					this.add = function() {
+						this.customers.push({
+							id : 789,
+							name : this.newName
+						})
+						this.newName = "";
+					}
+
+					this.remove = function(i) {
+						this.customers.splice(i, 1);
+					}
+
+					/* var self = this;
+					setTimeout(function() {
+						self.customers.push({
+							id : 901,
+							name : "Yosef"
+						})
+						$scope.$apply()
+					}, 5000);
+					 */
+				});
+	</script>
+</body>
+
+</html>

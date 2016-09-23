@@ -1,0 +1,21 @@
+<html ng-app>
+
+<body>
+	<fieldset>
+		<label for="user-name">User Name</label> 
+		<input id="user-name" ng-model="userName" type="text"> 
+		<label for="user-name">Password</label>
+		<input id="password" ng-model="password" type="password">
+
+	</fieldset>
+	<div>
+		{{userName}}<br>
+		Your password {{password}} is not secure!!
+	</div>
+
+	<script
+		src="./js/angular.js"></script>
+</body>
+
+
+</html>

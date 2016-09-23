@@ -1,0 +1,34 @@
+<html ng-app="intro">
+<body ng-controller="AccountController as AC">
+<fieldset>
+
+		<label for=balance>Balance</label>
+		<input id="balance" ng-model="AC.account.balance" type="text">
+		
+		<label for="type">Type</label>
+		<input id="type" ng-model="AC.account.type" type="text">
+</fieldset>
+
+<div>
+Account Id: {{ AC.account.accountId }} <br>
+Customer Id: {{ AC.account.custId }} <br>
+Type: {{ AC.account.type }} <br>
+Balance: {{ AC.account.balance }}
+</div>
+
+
+<script src="./js/angular.js"></script>
+<script type="text/javascript">
+angular.module('intro', []).controller("AccountController", function (){
+	this.account={
+		accountId : 55,
+		custId : 22300,
+		type : "SA",
+		balance : 900
+	}
+});
+
+</script>
+</body>
+
+</html>
